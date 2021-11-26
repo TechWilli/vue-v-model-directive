@@ -1,0 +1,109 @@
+:root {
+  --border-color: #dddddd;
+  --background-light: #fafafa;
+  --text-primary-color: #333333;
+  --text-secondary-color: #666666;
+  --green: #41B883;
+  --light-green: #9bffd2;
+  --red: #ff6767;
+  --light-red: #ffbbbb;
+  --blue: #7eabff;
+  --light-blue: #d8e5fd;
+  --orange: #fd7d33;
+  --light-orange: #ffb68c;
+  --box-shadow-color: rgb(0, 0, 0, .125);
+}
+
+/* para quem acessar do navegador no celular, diminuir a fonte do html
+para redimensionar as medidas em rem */
+@media (max-width: 425px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Code', monospace;
+  color: var(--text-primary-color);
+}
+
+li {
+  list-style: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-light);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.login-container {
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: .25rem;
+  width: 25rem;
+  /* height: 30rem; */
+  background-color: #ffffff;
+  box-shadow: 2px 2px 10px var(--box-shadow-color);
+}
+
+label {
+  font-size: .785rem;
+  margin-bottom: .25rem;
+  display: block;
+}
+
+.login__input {
+  display: block;
+  padding: .75rem .8rem;
+  border: none;
+  margin-bottom: 1.5rem;
+  border-radius: .25rem;
+  border: 2px solid var(--blue);
+  transition: box-shadow 300ms;
+  width: 100%;
+}
+
+input[id="password"] {
+  padding-right: 4.4rem;
+}
+
+.login__title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.login__input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4.3px var(--light-blue);
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 2.3rem;
+  right: .5rem;
+  font-size: .7rem;
+  cursor: pointer;
+}
+
+.reactive-text {
+  font-size: .875rem;
+  line-height: 2;
+  color: var(--text-secondary-color);
+}

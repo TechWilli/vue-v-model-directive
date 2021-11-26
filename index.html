@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="vue.js"></script>
+  <title>Vue v-model</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="login-container">
+      <span class="login__title">Informe suas credenciais 😎</span>
+      <label for="username">Usuário:</label>
+      <input
+        class="login__input"
+        id="username"
+        type="text"
+        v-model="userName"
+        placeholder="Digite seu usuário" />
+      <div class="password-container">
+        <label for="password">Senha:</label>
+        <input
+          class="login__input"
+          id="password"
+          v-bind:type="passwordToggleType"
+          v-model="password"
+          placeholder="Digite seu senha" />
+          <span v-on:click="togglePassword" class="toggle-password">{{ togglePasswordText }}</span>
+      </div>
+      <div v-bind:style="{borderTop: '1px solid #dddddd', paddingTop: '1rem'}">
+        <p class="reactive-text">Usuário digitado: {{ userName }}</p>
+        <p class="reactive-text">senha digitada: {{ password }}</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      userName: '',
+      password: '',
+      passwordToggleType: 'password'
+    },
+    methods: {
+      togglePassword() {
+        this.passwordToggleType = this.passwordToggleType === 'password' ? 'text' : 'password'
+      }
+    },
+    computed: {
+      togglePasswordText() {
+        return this.passwordToggleType === 'password' ? 'mostrar' : 'esconder'
+      }
+    }
+  })
+</script>
+
+</html>
